@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:injectable/injectable.dart';
-import 'package:encrypt/encrypt.dart';
 
 @module
 abstract class RegisterModules {
@@ -11,7 +11,8 @@ abstract class RegisterModules {
         // receiveTimeout: const Duration(seconds: 1),
         validateStatus: (status) => status! < 500,
       ));
-
+  @singleton
+  FaceDetector get faceDetector => FaceDetector(options: FaceDetectorOptions());
   @singleton
   FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
 }

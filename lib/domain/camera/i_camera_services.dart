@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
 import 'package:face_recognize_app/core/failure/failure.dart';

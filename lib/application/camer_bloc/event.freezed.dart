@@ -19,19 +19,19 @@ mixin _$CameraEvents {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() takeSnapShot,
-    required TResult Function() getCameras,
+    required TResult Function(void Function() listener) getCameras,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? takeSnapShot,
-    TResult? Function()? getCameras,
+    TResult? Function(void Function() listener)? getCameras,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? takeSnapShot,
-    TResult Function()? getCameras,
+    TResult Function(void Function() listener)? getCameras,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$_TakeSnapShot implements _TakeSnapShot {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() takeSnapShot,
-    required TResult Function() getCameras,
+    required TResult Function(void Function() listener) getCameras,
   }) {
     return takeSnapShot();
   }
@@ -122,7 +122,7 @@ class _$_TakeSnapShot implements _TakeSnapShot {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? takeSnapShot,
-    TResult? Function()? getCameras,
+    TResult? Function(void Function() listener)? getCameras,
   }) {
     return takeSnapShot?.call();
   }
@@ -131,7 +131,7 @@ class _$_TakeSnapShot implements _TakeSnapShot {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? takeSnapShot,
-    TResult Function()? getCameras,
+    TResult Function(void Function() listener)? getCameras,
     required TResult orElse(),
   }) {
     if (takeSnapShot != null) {
@@ -181,6 +181,8 @@ abstract class _$$_GetCamerasCopyWith<$Res> {
   factory _$$_GetCamerasCopyWith(
           _$_GetCameras value, $Res Function(_$_GetCameras) then) =
       __$$_GetCamerasCopyWithImpl<$Res>;
+  @useResult
+  $Res call({void Function() listener});
 }
 
 /// @nodoc
@@ -190,54 +192,79 @@ class __$$_GetCamerasCopyWithImpl<$Res>
   __$$_GetCamerasCopyWithImpl(
       _$_GetCameras _value, $Res Function(_$_GetCameras) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? listener = null,
+  }) {
+    return _then(_$_GetCameras(
+      null == listener
+          ? _value.listener
+          : listener // ignore: cast_nullable_to_non_nullable
+              as void Function(),
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GetCameras implements _GetCameras {
-  const _$_GetCameras();
+  const _$_GetCameras(this.listener);
+
+  @override
+  final void Function() listener;
 
   @override
   String toString() {
-    return 'CameraEvents.getCameras()';
+    return 'CameraEvents.getCameras(listener: $listener)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetCameras);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetCameras &&
+            (identical(other.listener, listener) ||
+                other.listener == listener));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, listener);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCamerasCopyWith<_$_GetCameras> get copyWith =>
+      __$$_GetCamerasCopyWithImpl<_$_GetCameras>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() takeSnapShot,
-    required TResult Function() getCameras,
+    required TResult Function(void Function() listener) getCameras,
   }) {
-    return getCameras();
+    return getCameras(listener);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? takeSnapShot,
-    TResult? Function()? getCameras,
+    TResult? Function(void Function() listener)? getCameras,
   }) {
-    return getCameras?.call();
+    return getCameras?.call(listener);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? takeSnapShot,
-    TResult Function()? getCameras,
+    TResult Function(void Function() listener)? getCameras,
     required TResult orElse(),
   }) {
     if (getCameras != null) {
-      return getCameras();
+      return getCameras(listener);
     }
     return orElse();
   }
@@ -275,5 +302,10 @@ class _$_GetCameras implements _GetCameras {
 }
 
 abstract class _GetCameras implements CameraEvents {
-  const factory _GetCameras() = _$_GetCameras;
+  const factory _GetCameras(final void Function() listener) = _$_GetCameras;
+
+  void Function() get listener;
+  @JsonKey(ignore: true)
+  _$$_GetCamerasCopyWith<_$_GetCameras> get copyWith =>
+      throw _privateConstructorUsedError;
 }

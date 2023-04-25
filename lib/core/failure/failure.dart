@@ -11,4 +11,5 @@ abstract class Failures with _$Failures {
   const factory Failures.failedToDecript() = _FailedToDecript;
   const factory Failures.cameraAccessDenied() = _CameraAccessDenied;
   const factory Failures.failedToTakePicture() = _FailedToTakePicture;
+  const factory Failures.failedToDetactFace() = _FailedToDetactFace;
 }

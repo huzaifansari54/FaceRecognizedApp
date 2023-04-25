@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'state.dart';
-import 'package:encrypt/encrypt.dart';
 
 final applifecycleBloc =
     StateNotifierProvider<ApplifecycleStateBloc, AppLifeCycleStates>(

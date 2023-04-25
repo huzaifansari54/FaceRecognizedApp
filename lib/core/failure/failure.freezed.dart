@@ -25,6 +25,7 @@ mixin _$Failures {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$Failures {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$Failures {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +63,7 @@ mixin _$Failures {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +75,7 @@ mixin _$Failures {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +87,7 @@ mixin _$Failures {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -173,6 +179,7 @@ class _$_Server implements _Server {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return server(error);
   }
@@ -187,6 +194,7 @@ class _$_Server implements _Server {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return server?.call(error);
   }
@@ -201,6 +209,7 @@ class _$_Server implements _Server {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (server != null) {
@@ -220,6 +229,7 @@ class _$_Server implements _Server {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return server(this);
   }
@@ -234,6 +244,7 @@ class _$_Server implements _Server {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return server?.call(this);
   }
@@ -248,6 +259,7 @@ class _$_Server implements _Server {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (server != null) {
@@ -310,6 +322,7 @@ class _$_TimeOut implements _TimeOut {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return timeout();
   }
@@ -324,6 +337,7 @@ class _$_TimeOut implements _TimeOut {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return timeout?.call();
   }
@@ -338,6 +352,7 @@ class _$_TimeOut implements _TimeOut {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (timeout != null) {
@@ -357,6 +372,7 @@ class _$_TimeOut implements _TimeOut {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return timeout(this);
   }
@@ -371,6 +387,7 @@ class _$_TimeOut implements _TimeOut {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return timeout?.call(this);
   }
@@ -385,6 +402,7 @@ class _$_TimeOut implements _TimeOut {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (timeout != null) {
@@ -443,6 +461,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return internetConnectionOut();
   }
@@ -457,6 +476,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return internetConnectionOut?.call();
   }
@@ -471,6 +491,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (internetConnectionOut != null) {
@@ -490,6 +511,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return internetConnectionOut(this);
   }
@@ -504,6 +526,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return internetConnectionOut?.call(this);
   }
@@ -518,6 +541,7 @@ class _$_InternetConnectionOut implements _InternetConnectionOut {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (internetConnectionOut != null) {
@@ -576,6 +600,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return failedToEncript();
   }
@@ -590,6 +615,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return failedToEncript?.call();
   }
@@ -604,6 +630,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToEncript != null) {
@@ -623,6 +650,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return failedToEncript(this);
   }
@@ -637,6 +665,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return failedToEncript?.call(this);
   }
@@ -651,6 +680,7 @@ class _$_FailedToEncript implements _FailedToEncript {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToEncript != null) {
@@ -709,6 +739,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return failedToDecript();
   }
@@ -723,6 +754,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return failedToDecript?.call();
   }
@@ -737,6 +769,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToDecript != null) {
@@ -756,6 +789,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return failedToDecript(this);
   }
@@ -770,6 +804,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return failedToDecript?.call(this);
   }
@@ -784,6 +819,7 @@ class _$_FailedToDecript implements _FailedToDecript {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToDecript != null) {
@@ -842,6 +878,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return cameraAccessDenied();
   }
@@ -856,6 +893,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return cameraAccessDenied?.call();
   }
@@ -870,6 +908,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (cameraAccessDenied != null) {
@@ -889,6 +928,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return cameraAccessDenied(this);
   }
@@ -903,6 +943,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return cameraAccessDenied?.call(this);
   }
@@ -917,6 +958,7 @@ class _$_CameraAccessDenied implements _CameraAccessDenied {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (cameraAccessDenied != null) {
@@ -975,6 +1017,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     required TResult Function() failedToDecript,
     required TResult Function() cameraAccessDenied,
     required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
   }) {
     return failedToTakePicture();
   }
@@ -989,6 +1032,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     TResult? Function()? failedToDecript,
     TResult? Function()? cameraAccessDenied,
     TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
   }) {
     return failedToTakePicture?.call();
   }
@@ -1003,6 +1047,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     TResult Function()? failedToDecript,
     TResult Function()? cameraAccessDenied,
     TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToTakePicture != null) {
@@ -1022,6 +1067,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     required TResult Function(_FailedToDecript value) failedToDecript,
     required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
     required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
   }) {
     return failedToTakePicture(this);
   }
@@ -1036,6 +1082,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     TResult? Function(_FailedToDecript value)? failedToDecript,
     TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
   }) {
     return failedToTakePicture?.call(this);
   }
@@ -1050,6 +1097,7 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
     TResult Function(_FailedToDecript value)? failedToDecript,
     TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
     TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
     required TResult orElse(),
   }) {
     if (failedToTakePicture != null) {
@@ -1061,4 +1109,143 @@ class _$_FailedToTakePicture implements _FailedToTakePicture {
 
 abstract class _FailedToTakePicture implements Failures {
   const factory _FailedToTakePicture() = _$_FailedToTakePicture;
+}
+
+/// @nodoc
+abstract class _$$_FailedToDetactFaceCopyWith<$Res> {
+  factory _$$_FailedToDetactFaceCopyWith(_$_FailedToDetactFace value,
+          $Res Function(_$_FailedToDetactFace) then) =
+      __$$_FailedToDetactFaceCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FailedToDetactFaceCopyWithImpl<$Res>
+    extends _$FailuresCopyWithImpl<$Res, _$_FailedToDetactFace>
+    implements _$$_FailedToDetactFaceCopyWith<$Res> {
+  __$$_FailedToDetactFaceCopyWithImpl(
+      _$_FailedToDetactFace _value, $Res Function(_$_FailedToDetactFace) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FailedToDetactFace implements _FailedToDetactFace {
+  const _$_FailedToDetactFace();
+
+  @override
+  String toString() {
+    return 'Failures.failedToDetactFace()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FailedToDetactFace);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) server,
+    required TResult Function() timeout,
+    required TResult Function() internetConnectionOut,
+    required TResult Function() failedToEncript,
+    required TResult Function() failedToDecript,
+    required TResult Function() cameraAccessDenied,
+    required TResult Function() failedToTakePicture,
+    required TResult Function() failedToDetactFace,
+  }) {
+    return failedToDetactFace();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? server,
+    TResult? Function()? timeout,
+    TResult? Function()? internetConnectionOut,
+    TResult? Function()? failedToEncript,
+    TResult? Function()? failedToDecript,
+    TResult? Function()? cameraAccessDenied,
+    TResult? Function()? failedToTakePicture,
+    TResult? Function()? failedToDetactFace,
+  }) {
+    return failedToDetactFace?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? server,
+    TResult Function()? timeout,
+    TResult Function()? internetConnectionOut,
+    TResult Function()? failedToEncript,
+    TResult Function()? failedToDecript,
+    TResult Function()? cameraAccessDenied,
+    TResult Function()? failedToTakePicture,
+    TResult Function()? failedToDetactFace,
+    required TResult orElse(),
+  }) {
+    if (failedToDetactFace != null) {
+      return failedToDetactFace();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Server value) server,
+    required TResult Function(_TimeOut value) timeout,
+    required TResult Function(_InternetConnectionOut value)
+        internetConnectionOut,
+    required TResult Function(_FailedToEncript value) failedToEncript,
+    required TResult Function(_FailedToDecript value) failedToDecript,
+    required TResult Function(_CameraAccessDenied value) cameraAccessDenied,
+    required TResult Function(_FailedToTakePicture value) failedToTakePicture,
+    required TResult Function(_FailedToDetactFace value) failedToDetactFace,
+  }) {
+    return failedToDetactFace(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Server value)? server,
+    TResult? Function(_TimeOut value)? timeout,
+    TResult? Function(_InternetConnectionOut value)? internetConnectionOut,
+    TResult? Function(_FailedToEncript value)? failedToEncript,
+    TResult? Function(_FailedToDecript value)? failedToDecript,
+    TResult? Function(_CameraAccessDenied value)? cameraAccessDenied,
+    TResult? Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult? Function(_FailedToDetactFace value)? failedToDetactFace,
+  }) {
+    return failedToDetactFace?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Server value)? server,
+    TResult Function(_TimeOut value)? timeout,
+    TResult Function(_InternetConnectionOut value)? internetConnectionOut,
+    TResult Function(_FailedToEncript value)? failedToEncript,
+    TResult Function(_FailedToDecript value)? failedToDecript,
+    TResult Function(_CameraAccessDenied value)? cameraAccessDenied,
+    TResult Function(_FailedToTakePicture value)? failedToTakePicture,
+    TResult Function(_FailedToDetactFace value)? failedToDetactFace,
+    required TResult orElse(),
+  }) {
+    if (failedToDetactFace != null) {
+      return failedToDetactFace(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailedToDetactFace implements Failures {
+  const factory _FailedToDetactFace() = _$_FailedToDetactFace;
 }

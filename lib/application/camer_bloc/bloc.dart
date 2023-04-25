@@ -11,8 +11,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-final cameraBloc = StateNotifierProvider<CameraBloc, CameraState>(
-    (ref) => CameraBloc(cameraService: getIt<CameraService>(), ref: ref));
+final cameraBloc = StateNotifierProvider<CameraBloc, CameraState>((ref) =>
+    CameraBloc(
+        cameraService: getIt<CameraService>(),
+        ref: getIt<ApplifecycleStateBloc>()));
 
 @injectable
 class CameraBloc extends StateNotifier<CameraState> {
@@ -20,23 +22,29 @@ class CameraBloc extends StateNotifier<CameraState> {
       : super(CameraState.empty()) {
     cameraService.cameraStateChanges.listen(_listenCameraState);
     // App state changed before we got the chance to initialize.
-    state.cameraController.fold(() {
-      return;
-    }, (camera) {
-      if (camera.value.isInitialized) {
-        ref.watch(applifecycleBloc).when(
-              resumed: () {},
-              paused: () {},
-              detach: () {},
-              inactive: () {
-                camera.dispose();
-              },
-            );
-      }
+    ref.stream.listen((next) {
+      next.when(
+        resumed: () async {
+          await onNewCameraSelected();
+        },
+        paused: () {
+          print("object");
+        },
+        detach: () {},
+        inactive: () {
+          state.cameraController.fold(() {
+            return;
+          }, (camera) async {
+            if (camera.value.isInitialized) {
+              await camera.dispose();
+            }
+          });
+        },
+      );
     });
   }
   final ICameraService cameraService;
-  final Ref ref;
+  final ApplifecycleStateBloc ref;
 
   void eventToMap(CameraEvents events) {
     events.when(takeSnapShot: () {
@@ -44,9 +52,14 @@ class CameraBloc extends StateNotifier<CameraState> {
         state =
             state.copyWith(failure: some(const Failures.failedToTakePicture()));
       }, (camera) async {
-        final image = await camera.takePicture();
+        state = state.copyWith(isInProgress: true);
+        final image = camera.takePicture();
+        image.then((path) {
+          state = state.copyWith(
+              isInProgress: false, pathOfTheTakenPhoto: path.path);
+        });
       });
-    }, getCameras: () async {
+    }, getCameras: (fun) async {
       state = state.copyWith(isInProgress: true);
       final cameraOrFailure = await cameraService.getCamera();
       state = state.copyWith(isInProgress: true);
@@ -54,6 +67,7 @@ class CameraBloc extends StateNotifier<CameraState> {
         state = state.copyWith(failure: some(failure));
       }, (description) async {
         state = state.copyWith(
+            cameras: description,
             cameraController: some(CameraController(
                 description[0], ResolutionPreset.high,
                 enableAudio: false)));
@@ -61,11 +75,7 @@ class CameraBloc extends StateNotifier<CameraState> {
             description[0], ResolutionPreset.high,
             enableAudio: false));
         await cam.initialize();
-        cam.addListener(() {
-          if (mounted) {
-            state = state;
-          }
-        });
+        state = state.copyWith(isInProgress: false);
       });
     });
   }
@@ -112,20 +122,10 @@ class CameraBloc extends StateNotifier<CameraState> {
           ? state.cameras[1]
           : state.cameras[0],
       ResolutionPreset.low,
-      imageFormatGroup: ImageFormatGroup.jpeg,
     );
     state = state.copyWith(cameraController: some(cameraController));
 
     // If the controller is updated then update the UI.
-    state.cameraController
-        .getOrElse(() => CameraController(
-            state.cameras[0], ResolutionPreset.high,
-            enableAudio: false))
-        .addListener(() {
-      if (mounted) {
-        state = state;
-      }
-    });
 
     await state.cameraController
         .fold(() => null, (a) async => await a.initialize());
