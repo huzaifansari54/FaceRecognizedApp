@@ -6,5 +6,5 @@ part 'event.freezed.dart';
 abstract class DBEvents with _$DBEvents {
   const factory DBEvents.serachByFace({required FaceModel faceModel}) =
       _SearchByFace;
-  const factory DBEvents.getAllFaces() = _GetAllFaces;
+  const factory DBEvents.upload({required FaceModel faceModel}) = _Upload;
 }

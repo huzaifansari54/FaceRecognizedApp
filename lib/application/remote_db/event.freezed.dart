@@ -16,43 +16,48 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DBEvents {
+  FaceModel get faceModel => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FaceModel faceModel) serachByFace,
-    required TResult Function() getAllFaces,
+    required TResult Function(FaceModel faceModel) upload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FaceModel faceModel)? serachByFace,
-    TResult? Function()? getAllFaces,
+    TResult? Function(FaceModel faceModel)? upload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FaceModel faceModel)? serachByFace,
-    TResult Function()? getAllFaces,
+    TResult Function(FaceModel faceModel)? upload,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchByFace value) serachByFace,
-    required TResult Function(_GetAllFaces value) getAllFaces,
+    required TResult Function(_Upload value) upload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchByFace value)? serachByFace,
-    TResult? Function(_GetAllFaces value)? getAllFaces,
+    TResult? Function(_Upload value)? upload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchByFace value)? serachByFace,
-    TResult Function(_GetAllFaces value)? getAllFaces,
+    TResult Function(_Upload value)? upload,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DBEventsCopyWith<DBEvents> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,6 +65,10 @@ mixin _$DBEvents {
 abstract class $DBEventsCopyWith<$Res> {
   factory $DBEventsCopyWith(DBEvents value, $Res Function(DBEvents) then) =
       _$DBEventsCopyWithImpl<$Res, DBEvents>;
+  @useResult
+  $Res call({FaceModel faceModel});
+
+  $FaceModelCopyWith<$Res> get faceModel;
 }
 
 /// @nodoc
@@ -71,16 +80,40 @@ class _$DBEventsCopyWithImpl<$Res, $Val extends DBEvents>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? faceModel = null,
+  }) {
+    return _then(_value.copyWith(
+      faceModel: null == faceModel
+          ? _value.faceModel
+          : faceModel // ignore: cast_nullable_to_non_nullable
+              as FaceModel,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FaceModelCopyWith<$Res> get faceModel {
+    return $FaceModelCopyWith<$Res>(_value.faceModel, (value) {
+      return _then(_value.copyWith(faceModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_SearchByFaceCopyWith<$Res> {
+abstract class _$$_SearchByFaceCopyWith<$Res>
+    implements $DBEventsCopyWith<$Res> {
   factory _$$_SearchByFaceCopyWith(
           _$_SearchByFace value, $Res Function(_$_SearchByFace) then) =
       __$$_SearchByFaceCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({FaceModel faceModel});
 
+  @override
   $FaceModelCopyWith<$Res> get faceModel;
 }
 
@@ -103,14 +136,6 @@ class __$$_SearchByFaceCopyWithImpl<$Res>
           : faceModel // ignore: cast_nullable_to_non_nullable
               as FaceModel,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $FaceModelCopyWith<$Res> get faceModel {
-    return $FaceModelCopyWith<$Res>(_value.faceModel, (value) {
-      return _then(_value.copyWith(faceModel: value));
-    });
   }
 }
 
@@ -149,7 +174,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FaceModel faceModel) serachByFace,
-    required TResult Function() getAllFaces,
+    required TResult Function(FaceModel faceModel) upload,
   }) {
     return serachByFace(faceModel);
   }
@@ -158,7 +183,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FaceModel faceModel)? serachByFace,
-    TResult? Function()? getAllFaces,
+    TResult? Function(FaceModel faceModel)? upload,
   }) {
     return serachByFace?.call(faceModel);
   }
@@ -167,7 +192,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FaceModel faceModel)? serachByFace,
-    TResult Function()? getAllFaces,
+    TResult Function(FaceModel faceModel)? upload,
     required TResult orElse(),
   }) {
     if (serachByFace != null) {
@@ -180,7 +205,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchByFace value) serachByFace,
-    required TResult Function(_GetAllFaces value) getAllFaces,
+    required TResult Function(_Upload value) upload,
   }) {
     return serachByFace(this);
   }
@@ -189,7 +214,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchByFace value)? serachByFace,
-    TResult? Function(_GetAllFaces value)? getAllFaces,
+    TResult? Function(_Upload value)? upload,
   }) {
     return serachByFace?.call(this);
   }
@@ -198,7 +223,7 @@ class _$_SearchByFace implements _SearchByFace {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchByFace value)? serachByFace,
-    TResult Function(_GetAllFaces value)? getAllFaces,
+    TResult Function(_Upload value)? upload,
     required TResult orElse(),
   }) {
     if (serachByFace != null) {
@@ -212,74 +237,105 @@ abstract class _SearchByFace implements DBEvents {
   const factory _SearchByFace({required final FaceModel faceModel}) =
       _$_SearchByFace;
 
+  @override
   FaceModel get faceModel;
+  @override
   @JsonKey(ignore: true)
   _$$_SearchByFaceCopyWith<_$_SearchByFace> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetAllFacesCopyWith<$Res> {
-  factory _$$_GetAllFacesCopyWith(
-          _$_GetAllFaces value, $Res Function(_$_GetAllFaces) then) =
-      __$$_GetAllFacesCopyWithImpl<$Res>;
+abstract class _$$_UploadCopyWith<$Res> implements $DBEventsCopyWith<$Res> {
+  factory _$$_UploadCopyWith(_$_Upload value, $Res Function(_$_Upload) then) =
+      __$$_UploadCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FaceModel faceModel});
+
+  @override
+  $FaceModelCopyWith<$Res> get faceModel;
 }
 
 /// @nodoc
-class __$$_GetAllFacesCopyWithImpl<$Res>
-    extends _$DBEventsCopyWithImpl<$Res, _$_GetAllFaces>
-    implements _$$_GetAllFacesCopyWith<$Res> {
-  __$$_GetAllFacesCopyWithImpl(
-      _$_GetAllFaces _value, $Res Function(_$_GetAllFaces) _then)
+class __$$_UploadCopyWithImpl<$Res>
+    extends _$DBEventsCopyWithImpl<$Res, _$_Upload>
+    implements _$$_UploadCopyWith<$Res> {
+  __$$_UploadCopyWithImpl(_$_Upload _value, $Res Function(_$_Upload) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? faceModel = null,
+  }) {
+    return _then(_$_Upload(
+      faceModel: null == faceModel
+          ? _value.faceModel
+          : faceModel // ignore: cast_nullable_to_non_nullable
+              as FaceModel,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_GetAllFaces implements _GetAllFaces {
-  const _$_GetAllFaces();
+class _$_Upload implements _Upload {
+  const _$_Upload({required this.faceModel});
+
+  @override
+  final FaceModel faceModel;
 
   @override
   String toString() {
-    return 'DBEvents.getAllFaces()';
+    return 'DBEvents.upload(faceModel: $faceModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetAllFaces);
+        (other.runtimeType == runtimeType &&
+            other is _$_Upload &&
+            (identical(other.faceModel, faceModel) ||
+                other.faceModel == faceModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, faceModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UploadCopyWith<_$_Upload> get copyWith =>
+      __$$_UploadCopyWithImpl<_$_Upload>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FaceModel faceModel) serachByFace,
-    required TResult Function() getAllFaces,
+    required TResult Function(FaceModel faceModel) upload,
   }) {
-    return getAllFaces();
+    return upload(faceModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FaceModel faceModel)? serachByFace,
-    TResult? Function()? getAllFaces,
+    TResult? Function(FaceModel faceModel)? upload,
   }) {
-    return getAllFaces?.call();
+    return upload?.call(faceModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FaceModel faceModel)? serachByFace,
-    TResult Function()? getAllFaces,
+    TResult Function(FaceModel faceModel)? upload,
     required TResult orElse(),
   }) {
-    if (getAllFaces != null) {
-      return getAllFaces();
+    if (upload != null) {
+      return upload(faceModel);
     }
     return orElse();
   }
@@ -288,34 +344,41 @@ class _$_GetAllFaces implements _GetAllFaces {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchByFace value) serachByFace,
-    required TResult Function(_GetAllFaces value) getAllFaces,
+    required TResult Function(_Upload value) upload,
   }) {
-    return getAllFaces(this);
+    return upload(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchByFace value)? serachByFace,
-    TResult? Function(_GetAllFaces value)? getAllFaces,
+    TResult? Function(_Upload value)? upload,
   }) {
-    return getAllFaces?.call(this);
+    return upload?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchByFace value)? serachByFace,
-    TResult Function(_GetAllFaces value)? getAllFaces,
+    TResult Function(_Upload value)? upload,
     required TResult orElse(),
   }) {
-    if (getAllFaces != null) {
-      return getAllFaces(this);
+    if (upload != null) {
+      return upload(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetAllFaces implements DBEvents {
-  const factory _GetAllFaces() = _$_GetAllFaces;
+abstract class _Upload implements DBEvents {
+  const factory _Upload({required final FaceModel faceModel}) = _$_Upload;
+
+  @override
+  FaceModel get faceModel;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UploadCopyWith<_$_Upload> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -43,11 +43,12 @@ abstract class RegisterModules {
       }
       var interpreterOptions = InterpreterOptions()..addDelegate(delegate);
 
-      final _interpreter = await Interpreter.fromAsset('mobilefacenet.tflite',
-          options: interpreterOptions);
+      final _interpreter = await Interpreter.fromAsset(
+        "mobilefacenet.tflite",
+      );
       return _interpreter;
     } catch (e) {
-      throw Exception("Failed to load model");
+      throw Exception("Failed to load model $e");
     }
   }
 }

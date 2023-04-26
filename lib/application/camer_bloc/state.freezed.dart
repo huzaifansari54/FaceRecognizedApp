@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CameraState {
+  CameraImage? get cameraImage => throw _privateConstructorUsedError;
   List<CameraDescription> get cameras => throw _privateConstructorUsedError;
   Option<CameraController> get cameraController =>
       throw _privateConstructorUsedError;
@@ -37,7 +38,8 @@ abstract class $CameraStateCopyWith<$Res> {
       _$CameraStateCopyWithImpl<$Res, CameraState>;
   @useResult
   $Res call(
-      {List<CameraDescription> cameras,
+      {CameraImage? cameraImage,
+      List<CameraDescription> cameras,
       Option<CameraController> cameraController,
       Option<Failures> failure,
       int sizeOfTheTakenPhoto,
@@ -59,6 +61,7 @@ class _$CameraStateCopyWithImpl<$Res, $Val extends CameraState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? cameraImage = freezed,
     Object? cameras = null,
     Object? cameraController = null,
     Object? failure = null,
@@ -68,6 +71,10 @@ class _$CameraStateCopyWithImpl<$Res, $Val extends CameraState>
     Object? isCameraPermissionGranted = null,
   }) {
     return _then(_value.copyWith(
+      cameraImage: freezed == cameraImage
+          ? _value.cameraImage
+          : cameraImage // ignore: cast_nullable_to_non_nullable
+              as CameraImage?,
       cameras: null == cameras
           ? _value.cameras
           : cameras // ignore: cast_nullable_to_non_nullable
@@ -109,7 +116,8 @@ abstract class _$$_CameraStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<CameraDescription> cameras,
+      {CameraImage? cameraImage,
+      List<CameraDescription> cameras,
       Option<CameraController> cameraController,
       Option<Failures> failure,
       int sizeOfTheTakenPhoto,
@@ -129,6 +137,7 @@ class __$$_CameraStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? cameraImage = freezed,
     Object? cameras = null,
     Object? cameraController = null,
     Object? failure = null,
@@ -138,6 +147,10 @@ class __$$_CameraStateCopyWithImpl<$Res>
     Object? isCameraPermissionGranted = null,
   }) {
     return _then(_$_CameraState(
+      cameraImage: freezed == cameraImage
+          ? _value.cameraImage
+          : cameraImage // ignore: cast_nullable_to_non_nullable
+              as CameraImage?,
       cameras: null == cameras
           ? _value._cameras
           : cameras // ignore: cast_nullable_to_non_nullable
@@ -174,7 +187,8 @@ class __$$_CameraStateCopyWithImpl<$Res>
 
 class _$_CameraState implements _CameraState {
   const _$_CameraState(
-      {required final List<CameraDescription> cameras,
+      {required this.cameraImage,
+      required final List<CameraDescription> cameras,
       required this.cameraController,
       required this.failure,
       required this.sizeOfTheTakenPhoto,
@@ -183,6 +197,8 @@ class _$_CameraState implements _CameraState {
       required this.isCameraPermissionGranted})
       : _cameras = cameras;
 
+  @override
+  final CameraImage? cameraImage;
   final List<CameraDescription> _cameras;
   @override
   List<CameraDescription> get cameras {
@@ -206,7 +222,7 @@ class _$_CameraState implements _CameraState {
 
   @override
   String toString() {
-    return 'CameraState(cameras: $cameras, cameraController: $cameraController, failure: $failure, sizeOfTheTakenPhoto: $sizeOfTheTakenPhoto, pathOfTheTakenPhoto: $pathOfTheTakenPhoto, isInProgress: $isInProgress, isCameraPermissionGranted: $isCameraPermissionGranted)';
+    return 'CameraState(cameraImage: $cameraImage, cameras: $cameras, cameraController: $cameraController, failure: $failure, sizeOfTheTakenPhoto: $sizeOfTheTakenPhoto, pathOfTheTakenPhoto: $pathOfTheTakenPhoto, isInProgress: $isInProgress, isCameraPermissionGranted: $isCameraPermissionGranted)';
   }
 
   @override
@@ -214,6 +230,8 @@ class _$_CameraState implements _CameraState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CameraState &&
+            (identical(other.cameraImage, cameraImage) ||
+                other.cameraImage == cameraImage) &&
             const DeepCollectionEquality().equals(other._cameras, _cameras) &&
             (identical(other.cameraController, cameraController) ||
                 other.cameraController == cameraController) &&
@@ -232,6 +250,7 @@ class _$_CameraState implements _CameraState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      cameraImage,
       const DeepCollectionEquality().hash(_cameras),
       cameraController,
       failure,
@@ -249,7 +268,8 @@ class _$_CameraState implements _CameraState {
 
 abstract class _CameraState implements CameraState {
   const factory _CameraState(
-      {required final List<CameraDescription> cameras,
+      {required final CameraImage? cameraImage,
+      required final List<CameraDescription> cameras,
       required final Option<CameraController> cameraController,
       required final Option<Failures> failure,
       required final int sizeOfTheTakenPhoto,
@@ -257,6 +277,8 @@ abstract class _CameraState implements CameraState {
       required final bool isInProgress,
       required final bool isCameraPermissionGranted}) = _$_CameraState;
 
+  @override
+  CameraImage? get cameraImage;
   @override
   List<CameraDescription> get cameras;
   @override

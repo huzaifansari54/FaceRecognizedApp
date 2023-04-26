@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
 import 'package:face_recognize_app/application/app_life_cycle_bloc/bloc.dart';
 import 'package:face_recognize_app/application/camer_bloc/event.dart';
 import 'package:face_recognize_app/application/camer_bloc/state.dart';
+import 'package:face_recognize_app/application/face_dectection_bloc/bloc.dart';
+import 'package:face_recognize_app/application/face_dectection_bloc/event.dart';
 import 'package:face_recognize_app/core/failure/failure.dart';
 import 'package:face_recognize_app/domain/camera/i_camera_services.dart';
 import 'package:face_recognize_app/infrastructure/camera/camera_service.dart';
@@ -14,15 +18,19 @@ import 'package:permission_handler/permission_handler.dart';
 final cameraBloc = StateNotifierProvider<CameraBloc, CameraState>((ref) =>
     CameraBloc(
         cameraService: getIt<CameraService>(),
-        ref: getIt<ApplifecycleStateBloc>()));
+        ref: ref,
+        applifecycleStateBloc: getIt<ApplifecycleStateBloc>()));
 
 @injectable
 class CameraBloc extends StateNotifier<CameraState> {
-  CameraBloc({required this.cameraService, required this.ref})
+  CameraBloc(
+      {required this.cameraService,
+      required this.applifecycleStateBloc,
+      required this.ref})
       : super(CameraState.empty()) {
     cameraService.cameraStateChanges.listen(_listenCameraState);
     // App state changed before we got the chance to initialize.
-    ref.stream.listen((next) {
+    applifecycleStateBloc.stream.listen((next) {
       next.when(
         resumed: () async {
           await onNewCameraSelected();
@@ -42,7 +50,8 @@ class CameraBloc extends StateNotifier<CameraState> {
     });
   }
   final ICameraService cameraService;
-  final ApplifecycleStateBloc ref;
+  final ApplifecycleStateBloc applifecycleStateBloc;
+  final Ref ref;
 
   void eventToMap(CameraEvents events) {
     events.when(takeSnapShot: () {
@@ -52,12 +61,19 @@ class CameraBloc extends StateNotifier<CameraState> {
       }, (camera) async {
         state = state.copyWith(isInProgress: true, failure: none());
         final image = await camera.takePicture();
+        await camera.startImageStream((image) {
+          state = state.copyWith(cameraImage: image);
+        });
+
+        await camera.stopImageStream();
 
         state = state.copyWith(
             failure: none(),
             isInProgress: false,
             sizeOfTheTakenPhoto: await image.length(),
             pathOfTheTakenPhoto: image.path);
+        ref.read(faceDectorBloc.notifier).eventToStateMap(
+            FaceEvents.detactFace(imageFile: File(image.path)));
       });
     }, getCameras: (fun) async {
       state = state.copyWith(isInProgress: true, failure: none());

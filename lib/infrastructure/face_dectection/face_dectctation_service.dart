@@ -1,11 +1,12 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
+import 'package:face_recognize_app/application/face_dectection_bloc/bloc.dart';
 import 'package:face_recognize_app/domain/face_dectection/i_face_dectaction_service.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:google_mlkit_face_detection/src/face_detector.dart';
 import 'package:injectable/injectable.dart';
-
 import '../../core/failure/failure.dart';
 
 @singleton
