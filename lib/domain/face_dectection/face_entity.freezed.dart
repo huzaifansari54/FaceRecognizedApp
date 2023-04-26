@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FaceEntity {
   String get id => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
   Uint8List get imageByte => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,7 @@ abstract class $FaceEntityCopyWith<$Res> {
           FaceEntity value, $Res Function(FaceEntity) then) =
       _$FaceEntityCopyWithImpl<$Res, FaceEntity>;
   @useResult
-  $Res call({String id, Uint8List imageByte});
+  $Res call({String id, String label, Uint8List imageByte});
 }
 
 /// @nodoc
@@ -47,12 +48,17 @@ class _$FaceEntityCopyWithImpl<$Res, $Val extends FaceEntity>
   @override
   $Res call({
     Object? id = null,
+    Object? label = null,
     Object? imageByte = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
               as String,
       imageByte: null == imageByte
           ? _value.imageByte
@@ -70,7 +76,7 @@ abstract class _$$_FaceEntityCopyWith<$Res>
       __$$_FaceEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, Uint8List imageByte});
+  $Res call({String id, String label, Uint8List imageByte});
 }
 
 /// @nodoc
@@ -85,12 +91,17 @@ class __$$_FaceEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? label = null,
     Object? imageByte = null,
   }) {
     return _then(_$_FaceEntity(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
               as String,
       imageByte: null == imageByte
           ? _value.imageByte
@@ -103,16 +114,19 @@ class __$$_FaceEntityCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FaceEntity implements _FaceEntity {
-  const _$_FaceEntity({required this.id, required this.imageByte});
+  const _$_FaceEntity(
+      {required this.id, required this.label, required this.imageByte});
 
   @override
   final String id;
+  @override
+  final String label;
   @override
   final Uint8List imageByte;
 
   @override
   String toString() {
-    return 'FaceEntity(id: $id, imageByte: $imageByte)';
+    return 'FaceEntity(id: $id, label: $label, imageByte: $imageByte)';
   }
 
   @override
@@ -121,12 +135,13 @@ class _$_FaceEntity implements _FaceEntity {
         (other.runtimeType == runtimeType &&
             other is _$_FaceEntity &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.label, label) || other.label == label) &&
             const DeepCollectionEquality().equals(other.imageByte, imageByte));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, const DeepCollectionEquality().hash(imageByte));
+      runtimeType, id, label, const DeepCollectionEquality().hash(imageByte));
 
   @JsonKey(ignore: true)
   @override
@@ -138,10 +153,13 @@ class _$_FaceEntity implements _FaceEntity {
 abstract class _FaceEntity implements FaceEntity {
   const factory _FaceEntity(
       {required final String id,
+      required final String label,
       required final Uint8List imageByte}) = _$_FaceEntity;
 
   @override
   String get id;
+  @override
+  String get label;
   @override
   Uint8List get imageByte;
   @override

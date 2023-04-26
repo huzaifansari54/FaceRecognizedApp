@@ -17,7 +17,7 @@ class FaceDetactionServices extends IFacedDectactionService {
   Future<Either<Failures, List<Face>>> detacteFace(File imageFile) async {
     final inputImage = InputImage.fromFile(imageFile);
     final img = await faceDetector.processImage(inputImage);
-    if (img.isEmpty || img == null) {
+    if (img.isEmpty) {
       return left(const Failures.failedToDetactFace());
     } else {
       return right(img);

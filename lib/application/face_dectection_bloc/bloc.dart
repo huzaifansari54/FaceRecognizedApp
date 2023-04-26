@@ -1,10 +1,9 @@
 import 'package:face_recognize_app/application/face_dectection_bloc/event.dart';
 import 'package:face_recognize_app/application/face_dectection_bloc/state.dart';
-import 'package:face_recognize_app/core/failure/failure.dart';
+
 import 'package:face_recognize_app/domain/face_dectection/i_face_dectaction_service.dart';
 import 'package:face_recognize_app/infrastructure/face_dectection/face_dectctation_service.dart';
 import 'package:face_recognize_app/injectable/configure.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 

@@ -12,4 +12,8 @@ abstract class Failures with _$Failures {
   const factory Failures.cameraAccessDenied() = _CameraAccessDenied;
   const factory Failures.failedToTakePicture() = _FailedToTakePicture;
   const factory Failures.failedToDetactFace() = _FailedToDetactFace;
+  const factory Failures.failedToSerachFromDB({required String messsage}) =
+      _failedToSerachFromDB;
+  const factory Failures.failedToUpload({required String message}) =
+      _FailedToUpload;
 }

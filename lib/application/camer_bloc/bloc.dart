@@ -27,9 +27,7 @@ class CameraBloc extends StateNotifier<CameraState> {
         resumed: () async {
           await onNewCameraSelected();
         },
-        paused: () {
-          print("object");
-        },
+        paused: () {},
         detach: () {},
         inactive: () {
           state.cameraController.fold(() {
@@ -52,15 +50,17 @@ class CameraBloc extends StateNotifier<CameraState> {
         state =
             state.copyWith(failure: some(const Failures.failedToTakePicture()));
       }, (camera) async {
-        state = state.copyWith(isInProgress: true);
-        final image = camera.takePicture();
-        image.then((path) {
-          state = state.copyWith(
-              isInProgress: false, pathOfTheTakenPhoto: path.path);
-        });
+        state = state.copyWith(isInProgress: true, failure: none());
+        final image = await camera.takePicture();
+
+        state = state.copyWith(
+            failure: none(),
+            isInProgress: false,
+            sizeOfTheTakenPhoto: await image.length(),
+            pathOfTheTakenPhoto: image.path);
       });
     }, getCameras: (fun) async {
-      state = state.copyWith(isInProgress: true);
+      state = state.copyWith(isInProgress: true, failure: none());
       final cameraOrFailure = await cameraService.getCamera();
       state = state.copyWith(isInProgress: true);
       cameraOrFailure.fold((failure) {
@@ -68,6 +68,7 @@ class CameraBloc extends StateNotifier<CameraState> {
       }, (description) async {
         state = state.copyWith(
             cameras: description,
+            failure: none(),
             cameraController: some(CameraController(
                 description[0], ResolutionPreset.high,
                 enableAudio: false)));
@@ -118,17 +119,17 @@ class CameraBloc extends StateNotifier<CameraState> {
     await oldController.fold(() => null, (a) async => await a.dispose());
 
     final CameraController cameraController = CameraController(
-      oldControllersLens == CameraLensDirection.back
-          ? state.cameras[1]
-          : state.cameras[0],
-      ResolutionPreset.low,
-    );
+        oldControllersLens == CameraLensDirection.back
+            ? state.cameras[1]
+            : state.cameras[0],
+        ResolutionPreset.high,
+        enableAudio: false);
     state = state.copyWith(cameraController: some(cameraController));
 
     // If the controller is updated then update the UI.
 
     await state.cameraController
         .fold(() => null, (a) async => await a.initialize());
-    state = state.copyWith(isInProgress: false);
+    state = state.copyWith(isInProgress: false, failure: none());
   }
 }

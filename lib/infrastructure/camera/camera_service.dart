@@ -48,11 +48,9 @@ class CameraService extends ICameraService {
         case 'CameraAccessDenied':
           return left(const Failures.cameraAccessDenied());
         case 'CameraAccessDeniedWithoutPrompt':
-          // iOS only
           return left(const Failures.cameraAccessDenied());
 
         case 'CameraAccessRestricted':
-          // iOS only
           return left(const Failures.cameraAccessDenied());
 
         default:
